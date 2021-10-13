@@ -17,6 +17,10 @@
 
 其次 选择性阅读 [文章](https://github.com/Kloping/my-spring-tool)
 
+如果 你学过 Spring 那这个框架 就最适合你不过了
+
+没学过也没关系 阅读一下 [文章](https://github.com/Kloping/my-spring-tool) 基本入门
+
 最后拉取本项目 开始使用
 
 **说明:**<br>
@@ -24,5 +28,7 @@
     Controllers/* 控制器 接收 消息 返回处理结果
 
     BotStater 设置 配置 启动机器人
+
+    services 业务端 通常 由Controller 调用 处理
 
     具体简单见代码

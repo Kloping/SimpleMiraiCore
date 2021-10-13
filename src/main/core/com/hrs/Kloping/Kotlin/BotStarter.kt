@@ -19,7 +19,7 @@ import java.io.File
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 
-@CommentScan(path = "com.hrs.Kloping.Kotlin.controllers")
+@CommentScan(path = "com.hrs.Kloping.Kotlin")
 object BotStarter {
     const val qq = 0L
     const val password = ""

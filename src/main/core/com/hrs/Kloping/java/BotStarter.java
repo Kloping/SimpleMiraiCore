@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@CommentScan(path = "com.hrs.Kloping.java.controllers")
+@CommentScan(path = "com.hrs.Kloping.java")
 public class BotStarter {
     public static final long qq = 0L;
     public static final String password = "";
