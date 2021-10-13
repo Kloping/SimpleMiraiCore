@@ -1,10 +1,8 @@
 package com.hrs.Kloping.Kotlin.controllers
 
 import com.hrs.Kloping.Kotlin.BotStarter
-import com.hrs.MySpringTool.annotations.Action
-import com.hrs.MySpringTool.annotations.After
-import com.hrs.MySpringTool.annotations.Before
-import com.hrs.MySpringTool.annotations.Controller
+import com.hrs.Kloping.java.services.BaseService
+import com.hrs.MySpringTool.annotations.*
 import net.mamoe.mirai.contact.Group
 
 @Controller
@@ -24,6 +22,21 @@ class BaseController() {
     @Action("[@" + BotStarter.qq + "]你好")
     fun hello_(): String {
         return "你好啊"
+    }
+
+    @AutoStand
+    var service: BaseService? = null
+
+    @Action("计算<.+=>str>")
+    fun add(@Param("str") str: String): String? {
+        return try {
+            val ss = str.split("\\+").toTypedArray()
+            val a = ss[0].toInt()
+            val b = ss[1].toInt()
+            "结果" + service!!.add(a, b)
+        } catch (e: NumberFormatException) {
+            "格式错误"
+        }
     }
 
     @After

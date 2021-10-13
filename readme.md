@@ -29,6 +29,8 @@
 
     BotStater 设置 配置 启动机器人
 
-    services 业务端 通常 由Controller 调用 处理
+    services 业务的定义 通常 由Controller 调用 处理
+    
+    service.impl 业务的实现 
 
     具体简单见代码
