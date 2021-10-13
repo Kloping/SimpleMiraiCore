@@ -1,0 +1,3 @@
+*.java linguist-language=Java
+*.xml linguist-language=pom
+*.kt linguist-language=Kotlin
