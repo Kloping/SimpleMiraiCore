@@ -4,11 +4,9 @@
 
 ### 一切开发旨在学习，请勿用于非法用途
 
-  <h4>
-  <li>此框架由GitHhub: <a herf="https://github.com/Kloping"> Kloping </a> 开发</li>
-  <li>此框架 是完全免费且开放源代码</li>
-  <li>且 仅用于 学习和娱乐<u><b><i>禁止用于非法用途</i></b></u>
-</h4>
+- 此框架由GitHhub: [Kloping](https://github.com/Kloping) 开发
+- 此框架 是完全免费且开放源代码
+- 且 仅用于 学习和娱乐<u><b><i>禁止用于非法用途</i></b></u>
 
 
 长话短说:
