@@ -49,6 +49,11 @@ tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
  
 创建包 Plugins 创建类  [Plugins.PluginLoader](hhttps://github.com/Kloping/SimpleMiraiCore/tree/master/src/main/core/com/hrs/Kloping/java/Plugins)
 
-复制其内容 即可
+复制其内容 至本地
 
+主类添加
 
+    //加载插件
+    PluginLoader.load(args);
+
+即可
