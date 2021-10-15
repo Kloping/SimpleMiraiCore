@@ -33,3 +33,20 @@
     service.impl 业务的实现 
 
     具体简单见代码
+
+
+=====================================
+
+###更新 10/15 将 [Mirai-Core](https://github.com/mamoe/mirai/blob/dev/docs/README.md#jvm-%E5%B9%B3%E5%8F%B0-mirai-%E5%BC%80%E5%8F%91) 与 [Mirai-Console](https://github.com/mamoe/mirai/blob/dev/docs/UserManual.md#%E4%BD%BF%E7%94%A8%E7%BA%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%89%88%E6%9C%AC) 融合
+
+####在Core运行时 可加载 Consloe 插件
+
+使用方式与Console一致
+
+若之前 拉取过项目 更新下 [pom.xml](https://github.com/Kloping/SimpleMiraiCore/blob/master/pom.xml) 并 
+ 
+创建包 Plugins 创建类  [Plugins.PluginLoader](https://github.com/Kloping/SimpleMiraiCore/blob/master/pom.xml)
+
+复制其内容 即可
+
+

@@ -1,6 +1,7 @@
 package com.hrs.Kloping.java;
 
 import com.hrs.Kloping.java.ListenerHosts.BaseMessageListener;
+import com.hrs.Kloping.java.Plugins.PluginLoader;
 import com.hrs.MySpringTool.Starter;
 import com.hrs.MySpringTool.annotations.CommentScan;
 import com.hrs.MySpringTool.exceptions.NoRunException;
@@ -42,6 +43,8 @@ public class BotStarter {
         bot.getEventChannel().registerListenerHost(new BaseMessageListener());
         // 启动 工具处理
         startSpring();
+        //加载插件
+        PluginLoader.load(args);
     }
 
     public static final ExecutorService threads = Executors.newFixedThreadPool(20);

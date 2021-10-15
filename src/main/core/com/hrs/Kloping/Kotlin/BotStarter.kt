@@ -1,6 +1,7 @@
 package com.hrs.Kloping.Kotlin
 
 import com.hrs.Kloping.Kotlin.ListenerHosts.BaseMessageListener
+import com.hrs.Kloping.Kotlin.Plugins.PluginLoader
 import com.hrs.MySpringTool.Starter
 import com.hrs.MySpringTool.Starter.AllAfterOrBefore
 import com.hrs.MySpringTool.annotations.CommentScan
@@ -45,6 +46,8 @@ object BotStarter {
         bot.eventChannel.registerListenerHost(BaseMessageListener())
         // 启动 工具处理
         startSpring()
+        //加载插件
+        PluginLoader.load(args)
     }
 
     val threads = Executors.newFixedThreadPool(20)
