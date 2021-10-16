@@ -18,11 +18,6 @@ public class BaseController {
         return "你好,你好";
     }
 
-    @Action("[@" + BotStarter.qq + "]你好")
-    public String hello_() {
-        return "你好啊";
-    }
-
     @AutoStand
     BaseService service;
 

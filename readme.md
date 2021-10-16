@@ -45,9 +45,10 @@ tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
 
 使用方式与Console一致
 
-若之前 拉取过项目 更新下 [pom.xml](https://github.com/Kloping/SimpleMiraiCore/blob/master/pom.xml) 并 
- 
-创建包 Plugins 创建类  [Plugins.PluginLoader](hhttps://github.com/Kloping/SimpleMiraiCore/tree/master/src/main/core/com/hrs/Kloping/java/Plugins)
+若之前 拉取过项目 更新下 [pom.xml](https://github.com/Kloping/SimpleMiraiCore/blob/master/pom.xml) 并
+
+创建包 Plugins
+创建类  [Plugins.PluginLoader](hhttps://github.com/Kloping/SimpleMiraiCore/tree/master/src/main/core/com/hrs/Kloping/java/Plugins)
 
 复制其内容 至本地
 
@@ -57,3 +58,5 @@ tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
     PluginLoader.load(args);
 
 即可
+
+新增配置文件 conf.properties 避免重复打包

@@ -19,11 +19,6 @@ class BaseController() {
         return "你好,你好"
     }
 
-    @Action("[@" + BotStarter.qq + "]你好")
-    fun hello_(): String {
-        return "你好啊"
-    }
-
     @AutoStand
     var service: BaseService? = null
 

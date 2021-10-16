@@ -3,6 +3,7 @@ package com.hrs.Kloping.java;
 import com.hrs.Kloping.java.ListenerHosts.BaseMessageListener;
 import com.hrs.Kloping.java.Plugins.PluginLoader;
 import com.hrs.MySpringTool.Starter;
+import com.hrs.MySpringTool.annotations.AutoStand;
 import com.hrs.MySpringTool.annotations.CommentScan;
 import com.hrs.MySpringTool.exceptions.NoRunException;
 import net.mamoe.mirai.Bot;
@@ -22,10 +23,16 @@ import java.util.concurrent.Executors;
 
 @CommentScan(path = "com.hrs.Kloping.java")
 public class BotStarter {
-    public static final long qq = 0L;
-    public static final String password = "";
+
+    @AutoStand(id = "qq")
+    public static Long qq = 0L;
+    @AutoStand(id = "pwd")
+    public static String password = "";
 
     public static void main(String[] args) {
+        // 启动 工具处理
+        startSpring();
+        //创建配置
         BotConfiguration botConfiguration = new BotConfiguration();
         //登录协议
         botConfiguration.setProtocol(BotConfiguration.MiraiProtocol.ANDROID_PHONE);
@@ -41,8 +48,6 @@ public class BotStarter {
         bot.login();
         // 注册消息处理 通道
         bot.getEventChannel().registerListenerHost(new BaseMessageListener());
-        // 启动 工具处理
-        startSpring();
         //加载插件
         PluginLoader.load(args);
     }
@@ -52,6 +57,7 @@ public class BotStarter {
     // 这里是关键点 不懂得话可以去看我的另一个github
     //https://github.com/Kloping/my-spring-tool
     private static void startSpring() {
+        Starter.loadConfigurationFile("./conf.properties");
         Starter.run(BotStarter.class);
         Starter.setLog_Level(1);
         Starter.set_key(Long.class);
