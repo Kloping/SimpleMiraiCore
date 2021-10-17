@@ -6,6 +6,7 @@ import com.hrs.MySpringTool.annotations.AutoStand
 import com.hrs.MySpringTool.annotations.CommentScan
 import com.hrs.MySpringTool.exceptions.NoRunException
 import kotlinx.coroutines.runBlocking
+import net.mamoe.mirai.Bot
 import net.mamoe.mirai.BotFactory.INSTANCE.newBot
 import net.mamoe.mirai.contact.Contact
 import net.mamoe.mirai.contact.Group
@@ -23,13 +24,20 @@ import java.util.concurrent.Executors
 object BotStarter {
 
     @AutoStand(id = "qq")
-    var qq = 0L
+    var qq:Long = 0
 
     @AutoStand(id = "pwd")
     var password = ""
 
+    @AutoStand(id = "ReLogin")
+    var autoReLogin: Boolean? = null
+
+    var bot: Bot? = null
+
     @JvmStatic
     fun main(args: Array<String>) {
+        //启动时 删除缓存 减少 程序启动后堵塞无法登录的情况
+        deleteCache()
         // 启动 工具处理
         startSpring()
         //创建配置
@@ -42,16 +50,29 @@ object BotStarter {
         botConfiguration.cacheDir = File("./cache")
         // 设置 device
         botConfiguration.fileBasedDeviceInfo("./device.json")
+        //设置是否掉线重登录
+        botConfiguration.autoReconnectOnForceOffline = autoReLogin!!
         // 创建 Bot
-        val bot = newBot(qq, password, botConfiguration)
+        bot = newBot(qq, password, botConfiguration)
         // 登录
         runBlocking {
-            bot.login()
+            bot!!.login()
         }
         // 注册消息处理 通道
-        bot.eventChannel.registerListenerHost(com.hrs.Kloping.java.ListenerHosts.BaseMessageListener())
+        bot!!.eventChannel.registerListenerHost(com.hrs.Kloping.java.ListenerHosts.BaseMessageListener())
         //加载插件
         com.hrs.Kloping.java.Plugins.PluginLoader.load(args)
+    }
+
+    private fun deleteCache() {
+        try {
+            val file = File("./cache")
+            for (f in file.listFiles()) {
+                f.deleteOnExit()
+            }
+            file.deleteOnExit()
+        } catch (e: Exception) {
+        }
     }
 
     val threads = Executors.newFixedThreadPool(20)

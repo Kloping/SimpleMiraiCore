@@ -16,6 +16,7 @@ import net.mamoe.mirai.message.data.MessageChainBuilder;
 import net.mamoe.mirai.utils.BotConfiguration;
 
 import java.io.File;
+import java.net.URLEncoder;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -28,8 +29,14 @@ public class BotStarter {
     public static Long qq = 0L;
     @AutoStand(id = "pwd")
     public static String password = "";
+    @AutoStand(id = "ReLogin")
+    public static Boolean autoReLogin;
+
+    public static Bot bot;
 
     public static void main(String[] args) {
+        //启动时 删除缓存 减少 程序启动后堵塞无法登录的情况
+        deleteCache();
         // 启动 工具处理
         startSpring();
         //创建配置
@@ -42,14 +49,27 @@ public class BotStarter {
         botConfiguration.setCacheDir(new File("./cache"));
         // 设置 device
         botConfiguration.fileBasedDeviceInfo("./device.json");
+        //设置是否掉线重登录
+        botConfiguration.setAutoReconnectOnForceOffline(autoReLogin);
         // 创建 Bot
-        Bot bot = BotFactory.INSTANCE.newBot(qq, password, botConfiguration);
+        bot = BotFactory.INSTANCE.newBot(qq, password, botConfiguration);
         // 登录
         bot.login();
         // 注册消息处理 通道
         bot.getEventChannel().registerListenerHost(new BaseMessageListener());
         //加载插件
         PluginLoader.load(args);
+    }
+
+    private static void deleteCache() {
+        try {
+            File file = new File("./cache");
+            for (File f : file.listFiles()) {
+                f.deleteOnExit();
+            }
+            file.deleteOnExit();
+        } catch (Exception e) {
+        }
     }
 
     public static final ExecutorService threads = Executors.newFixedThreadPool(20);
