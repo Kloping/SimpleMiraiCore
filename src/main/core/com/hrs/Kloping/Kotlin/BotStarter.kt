@@ -77,10 +77,12 @@ object BotStarter {
 
     val threads = Executors.newFixedThreadPool(20)
 
+    const val confFile = "./conf.properties"
+
     // 这里是关键点 不懂得话可以去看我的另一个github
     //https://github.com/Kloping/my-spring-tool
     private fun startSpring() {
-        Starter.loadConfigurationFile("./conf.properties")
+        Starter.loadConfigurationFile(confFile)
         Starter.run(BotStarter::class.java)
         Starter.setLog_Level(1)
         Starter.set_key(Class.forName("java.lang.Long"))

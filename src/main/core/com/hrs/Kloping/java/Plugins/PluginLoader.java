@@ -10,7 +10,7 @@ public class PluginLoader {
             PrintStream old_ps = System.out;
             PrintStream old_err = System.err;
 
-//            MiraiConsoleTerminalLoader.main(args);
+            MiraiConsoleTerminalLoader.main(args);
 
             System.setErr(old_err);
             System.setOut(old_ps);

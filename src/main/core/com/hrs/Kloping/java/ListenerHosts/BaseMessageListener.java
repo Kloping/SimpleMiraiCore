@@ -13,6 +13,8 @@ import net.mamoe.mirai.event.events.GroupMessageEvent;
 import net.mamoe.mirai.event.events.StrangerMessageEvent;
 import net.mamoe.mirai.message.data.Message;
 
+import static com.hrs.Kloping.java.BotStarter.confFile;
+
 public class BaseMessageListener extends SimpleListenerHost {
     public BaseMessageListener() {
         super();
@@ -49,4 +51,11 @@ public class BaseMessageListener extends SimpleListenerHost {
 
     }
 
+    @EventHandler
+    public void onLost(BotOfflineEvent event) {
+        Starter.reLoadConfigurationFile(confFile);
+        Boolean k = Starter.getContextValue(boolean.class, "ReLogin");
+        k = k == null ? BotStarter.autoReLogin : k;
+        BotStarter.bot.getConfiguration().setAutoReconnectOnForceOffline(k);
+    }
 }

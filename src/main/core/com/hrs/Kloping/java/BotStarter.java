@@ -74,10 +74,12 @@ public class BotStarter {
 
     public static final ExecutorService threads = Executors.newFixedThreadPool(20);
 
+    public static final String confFile = "./conf.properties";
+
     // 这里是关键点 不懂得话可以去看我的另一个github
     //https://github.com/Kloping/my-spring-tool
     private static void startSpring() {
-        Starter.loadConfigurationFile("./conf.properties");
+        Starter.loadConfigurationFile(confFile);
         Starter.run(BotStarter.class);
         Starter.setLog_Level(1);
         Starter.set_key(Long.class);
