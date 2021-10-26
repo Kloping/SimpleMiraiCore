@@ -37,7 +37,6 @@
 tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
 可用压缩工具 打开jar包 将 META-INF\下 BCxxxx.DSA .DF 类似的文件删除 即可正常运行
 
-=====================================<br>
 
 ### 更新 10/15 将 [Mirai-Core](https://github.com/mamoe/mirai/blob/dev/docs/README.md#jvm-%E5%B9%B3%E5%8F%B0-mirai-%E5%BC%80%E5%8F%91) 与 [Mirai-Console](https://github.com/mamoe/mirai/blob/dev/docs/UserManual.md#%E4%BD%BF%E7%94%A8%E7%BA%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%89%88%E6%9C%AC) 融合
 
