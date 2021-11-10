@@ -105,7 +105,7 @@ object BotStarter {
             }
         })
     }
-
+    @JvmStatic
     private fun onReturnResult(o: Any?, objects: Array<Any>) {
         println("所有程序运行之后")
         if (o == null) return
