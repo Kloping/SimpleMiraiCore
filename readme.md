@@ -59,3 +59,15 @@ tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
 即可
 
 新增配置文件 conf.properties 避免重复打包
+
+
+```text
+#QQ账号
+qq=0
+#QQ密码
+pwd=0
+#掉线是否重新登录
+ReLogin=true
+#登录协议
+Protocol=ANDROID_PAD
+```

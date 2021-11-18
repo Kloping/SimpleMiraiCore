@@ -24,13 +24,16 @@ import java.util.concurrent.Executors
 object BotStarter {
 
     @AutoStand(id = "qq")
-    var qq:Long = 0
+    var qq: Long = 0
 
     @AutoStand(id = "pwd")
     var password = ""
 
     @AutoStand(id = "ReLogin")
-    var autoReLogin: Boolean? = null
+    var autoReLogin: Boolean? = false
+
+    @AutoStand(id = "Protocol")
+    private val Protocol = "ANDROID_PAD"
 
     var bot: Bot? = null
 
@@ -43,7 +46,7 @@ object BotStarter {
         //创建配置
         val botConfiguration = BotConfiguration()
         //登录协议
-        botConfiguration.protocol = MiraiProtocol.ANDROID_PHONE
+        botConfiguration.protocol = MiraiProtocol.valueOf(Protocol)
         // 心跳协议
         botConfiguration.heartbeatStrategy = HeartbeatStrategy.STAT_HB
         // 设置 cache 目录
@@ -105,6 +108,7 @@ object BotStarter {
             }
         })
     }
+
     @JvmStatic
     private fun onReturnResult(o: Any?, objects: Array<Any>) {
         println("所有程序运行之后")

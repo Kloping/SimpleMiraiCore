@@ -16,7 +16,6 @@ import net.mamoe.mirai.message.data.MessageChainBuilder;
 import net.mamoe.mirai.utils.BotConfiguration;
 
 import java.io.File;
-import java.net.URLEncoder;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -30,8 +29,9 @@ public class BotStarter {
     @AutoStand(id = "pwd")
     public static String password = "";
     @AutoStand(id = "ReLogin")
-    public static Boolean autoReLogin;
-
+    public static Boolean autoReLogin = false;
+    @AutoStand(id = "Protocol")
+    private static String Protocol = "ANDROID_PAD";
     public static Bot bot;
 
     public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class BotStarter {
         //创建配置
         BotConfiguration botConfiguration = new BotConfiguration();
         //登录协议
-        botConfiguration.setProtocol(BotConfiguration.MiraiProtocol.ANDROID_PHONE);
+        botConfiguration.setProtocol(BotConfiguration.MiraiProtocol.valueOf(Protocol));
         // 心跳协议
         botConfiguration.setHeartbeatStrategy(BotConfiguration.HeartbeatStrategy.STAT_HB);
         // 设置 cache 目录
