@@ -60,7 +60,7 @@ tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
 
 新增配置文件 conf.properties 避免重复打包
 
-
+### 配置说明
 ```text
 #QQ账号
 qq=0
