@@ -48,12 +48,7 @@
             <artifactId>mirai-console-compiler-annotations</artifactId>
             <version>LATEST</version>
         </dependency>
-        <dependency>
-            <groupId>net.mamoe</groupId>
-            <artifactId>mirai-console-terminal</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <dependency>
+           <dependency>
             <groupId>io.github.Kloping</groupId>
             <artifactId>SpringTool</artifactId>
             <version>LATEST</version>
