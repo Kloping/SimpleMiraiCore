@@ -51,12 +51,12 @@
         <dependency>
             <groupId>io.github.Kloping</groupId>
             <artifactId>SpringTool</artifactId>
-            <version>LATEST</version>
-        </dependency>
+            <version>0.1.6</version>
+        </dependency><!--
         <dependency>
             <groupId>io.github.Kloping</groupId>
             <artifactId>JvUtils</artifactId>
             <version>LATEST</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>

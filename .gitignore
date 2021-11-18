@@ -48,5 +48,5 @@ device.json
 cache
 config
 data
-plugins
+/plugins
 **/test
