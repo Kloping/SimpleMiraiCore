@@ -49,3 +49,4 @@ cache
 config
 data
 plugins
+**/test
