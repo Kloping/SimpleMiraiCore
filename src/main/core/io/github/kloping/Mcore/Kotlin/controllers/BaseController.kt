@@ -36,9 +36,9 @@ class BaseController() {
     }
 
     @Action("获取指定类型.*")
-    fun getAnyType(cm: Class2OMap<*>): String? {
+    fun getAnyType(cm: Class2OMap): String? {
         cm.isIdentical = false
-        val (target) = cm[At::class.java] as At
+        val target = cm[At::class.java]
         return String.format("你At了: $target")
     }
 

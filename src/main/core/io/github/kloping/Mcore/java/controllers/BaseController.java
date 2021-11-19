@@ -37,7 +37,7 @@ public class BaseController {
     @Action("获取指定类型.*")
     public String getAnyType(Class2OMap cm) {
         cm.setIdentical(false);
-        At at = (At) cm.get(At.class);
+        At at = cm.get(At.class);
         return String.format("你At了: " + at.getTarget());
     }
 
