@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
 public class BotStarter {
 
     @AutoStand(id = "qq")
-    public static Long qq = 0L;
+    public static Number qq = 0L;
     @AutoStand(id = "pwd")
     public static String password = "";
     @AutoStand(id = "ReLogin")
@@ -40,9 +40,9 @@ public class BotStarter {
         deleteCache();
         // 启动 工具处理
         startSpring();
-        //创建配置
+        // 创建配置
         BotConfiguration botConfiguration = new BotConfiguration();
-        //登录协议
+        // 登录协议
         botConfiguration.setProtocol(BotConfiguration.MiraiProtocol.valueOf(Protocol));
         // 心跳协议
         botConfiguration.setHeartbeatStrategy(BotConfiguration.HeartbeatStrategy.STAT_HB);
@@ -53,12 +53,12 @@ public class BotStarter {
         //设置是否掉线重登录
         botConfiguration.setAutoReconnectOnForceOffline(autoReLogin);
         // 创建 Bot
-        bot = BotFactory.INSTANCE.newBot(qq, password, botConfiguration);
+        bot = BotFactory.INSTANCE.newBot(qq.longValue(), password, botConfiguration);
         // 登录
         bot.login();
         // 注册消息处理 通道
         bot.getEventChannel().registerListenerHost(new BaseMessageListener());
-        //加载插件
+        // 加载插件
         PluginLoader.load(args);
     }
 
