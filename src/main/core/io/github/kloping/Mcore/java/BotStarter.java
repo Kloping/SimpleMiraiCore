@@ -2,9 +2,10 @@ package io.github.kloping.Mcore.java;
 
 import io.github.kloping.Mcore.java.ListenerHosts.BaseMessageListener;
 import io.github.kloping.Mcore.java.Plugins.PluginLoader;
-import io.github.kloping.MySpringTool.Starter;
+import io.github.kloping.MySpringTool.StarterApplication;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.CommentScan;
+import io.github.kloping.MySpringTool.entity.interfaces.Runner;
 import io.github.kloping.MySpringTool.exceptions.NoRunException;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
@@ -79,26 +80,26 @@ public class BotStarter {
     // 这里是关键点 不懂得话可以去看我的另一个github
     //https://github.com/Kloping/my-spring-tool
     private static void startSpring() {
-        Starter.loadConfigurationFile(confFile);
-        Starter.run(BotStarter.class);
-        Starter.setLog_Level(1);
-        Starter.set_key(Long.class);
-        Starter.setWaitTime(25L);
-        Starter.setAccPars(Long.class, Contact.class, Message.class);
-        Starter.setAllAfter(new Starter.AllAfterOrBefore(Starter.AllAfterOrBefore.State.After) {
+        StarterApplication.addConfFile(confFile);
+        StarterApplication.setMainKey(Long.class);
+        StarterApplication.setWaitTime(25L);
+        StarterApplication.setAccessTypes(Long.class, Contact.class, Message.class);
+        StarterApplication.setAllAfter(new Runner() {
             @Override
-            public void run(Object o, Object[] objects) throws NoRunException {
-                threads.execute(() -> {
-                    onReturnResult(o, objects);
-                });
+            public void run(Object t, Object[] objects) throws NoRunException {
+                if (t != null)
+                    threads.execute(() -> {
+                        onReturnResult(t, objects);
+                    });
             }
         });
-        Starter.setAllBefore(new Starter.AllAfterOrBefore(Starter.AllAfterOrBefore.State.Before) {
+        StarterApplication.setAllBefore(new Runner() {
             @Override
-            public void run(Object o, Object[] objects) throws NoRunException {
+            public void run(Object t, Object[] objects) throws NoRunException {
                 System.out.println("所有程序运行之前");
             }
         });
+        StarterApplication.run(BotStarter.class);
     }
 
     private static void onReturnResult(Object o, Object[] objects) {

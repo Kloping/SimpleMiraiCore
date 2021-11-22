@@ -1,12 +1,10 @@
 package io.github.kloping.Mcore.Kotlin
 
-import io.github.kloping.MySpringTool.Starter
-import io.github.kloping.MySpringTool.Starter.AllAfterOrBefore
+import io.github.kloping.Mcore.Kotlin.ListenerHosts.BaseMessageListener
+import io.github.kloping.Mcore.Kotlin.Plugins.PluginLoader
+import io.github.kloping.MySpringTool.StarterApplication
 import io.github.kloping.MySpringTool.annotations.AutoStand
 import io.github.kloping.MySpringTool.annotations.CommentScan
-import io.github.kloping.MySpringTool.exceptions.NoRunException
-import io.github.kloping.Mcore.java.ListenerHosts.BaseMessageListener
-import io.github.kloping.Mcore.java.Plugins.PluginLoader
 import kotlinx.coroutines.runBlocking
 import net.mamoe.mirai.Bot
 import net.mamoe.mirai.BotFactory.INSTANCE.newBot
@@ -26,16 +24,20 @@ import java.util.concurrent.Executors
 object BotStarter {
 
     @AutoStand(id = "qq")
-    var qq: Long = 0
+    @JvmStatic
+    var qq: Number = 0
 
     @AutoStand(id = "pwd")
+    @JvmStatic
     var password = ""
 
     @AutoStand(id = "ReLogin")
+    @JvmStatic
     var autoReLogin: Boolean? = false
 
     @AutoStand(id = "Protocol")
-    private val Protocol = "ANDROID_PAD"
+    @JvmStatic
+    var Protocol = "ANDROID_PAD"
 
     var bot: Bot? = null
 
@@ -58,7 +60,7 @@ object BotStarter {
         //设置是否掉线重登录
         botConfiguration.autoReconnectOnForceOffline = autoReLogin!!
         // 创建 Bot
-        bot = newBot(qq, password, botConfiguration)
+        bot = newBot(qq.toLong(), password, botConfiguration)
         // 登录
         runBlocking {
             bot!!.login()
@@ -87,28 +89,17 @@ object BotStarter {
     // 这里是关键点 不懂得话可以去看我的另一个github
     //https://github.com/Kloping/my-spring-tool
     private fun startSpring() {
-        Starter.loadConfigurationFile(confFile)
-        Starter.run(BotStarter::class.java)
-        Starter.setLog_Level(1)
-        Starter.set_key(Class.forName("java.lang.Long"))
-        Starter.setWaitTime(25L)
-        Starter.setAccPars(
-            Class.forName("java.lang.Long"),
-            Class.forName("net.mamoe.mirai.contact.Contact"),
-            Class.forName("net.mamoe.mirai.message.data.Message")
-        )
-        Starter.setAllAfter(object : AllAfterOrBefore(State.After) {
-            @Throws(NoRunException::class)
-            override fun run(o: Any?, objects: Array<Any>) {
-                threads.execute { onReturnResult(o, objects) }
+        StarterApplication.addConfFile(BotStarter.confFile)
+        StarterApplication.setMainKey(Long::class.java)
+        StarterApplication.setWaitTime(25L)
+        StarterApplication.setAccessTypes(Long::class.java, Contact::class.java, Message::class.java)
+        StarterApplication.setAllAfter { t, objects ->
+            if (t != null) threads.execute {
+                onReturnResult(t, objects)
             }
-        })
-        Starter.setAllBefore(object : AllAfterOrBefore(State.Before) {
-            @Throws(NoRunException::class)
-            override fun run(o: Any?, objects: Array<Any>) {
-                println("所有程序运行之前")
-            }
-        })
+        }
+        StarterApplication.setAllBefore { t, objects -> println("所有程序运行之前") }
+        StarterApplication.run(BotStarter::class.java)
     }
 
     @JvmStatic

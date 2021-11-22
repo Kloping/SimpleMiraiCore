@@ -3,6 +3,7 @@ package io.github.kloping.Mcore.java.ListenerHosts;
 import io.github.kloping.Mcore.java.BotStarter;
 import io.github.kloping.Mcore.java.utils.MessageUtils;
 import io.github.kloping.MySpringTool.Starter;
+import io.github.kloping.MySpringTool.StarterApplication;
 import kotlin.coroutines.CoroutineContext;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.event.EventHandler;
@@ -34,7 +35,7 @@ public class BaseMessageListener extends SimpleListenerHost {
         Contact contact = event.getSubject();
         Message message = event.getMessage();
         String text = MessageUtils.toText(event.getMessage()).trim();
-        Starter.ExecuteMethod(q, text, q, contact, message);
+        StarterApplication.ExecuteMethod(q, text, q, contact, message);
     }
 
     // 朋友消息
