@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@CommentScan(path = "io.github.kloping.java")
+@CommentScan(path = "io.github.kloping.Mcore.java")
 public class BotStarter {
 
     @AutoStand(id = "qq")

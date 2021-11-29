@@ -20,7 +20,7 @@ import java.io.File
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 
-@CommentScan(path = "io.github.kloping.Kotlin")
+@CommentScan(path = "io.github.kloping.Mcore.Kotlin")
 object BotStarter {
 
     @AutoStand(id = "qq")
