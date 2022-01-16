@@ -1,11 +1,12 @@
-package io.github.kloping.Mcore.kotlin.services
+package io.github.kloping.Mcore.java.services;
+
 
 /**
  * 在这里定义想要做的事
  *
  * @author github-kloping
  */
-interface BaseService {
+public interface BaseService {
     /**
      * return a and b result
      *
@@ -13,5 +14,5 @@ interface BaseService {
      * @param b
      * @return
      */
-    fun add(a: Int, b: Int): Number
+    Number add(int a, int b);
 }
