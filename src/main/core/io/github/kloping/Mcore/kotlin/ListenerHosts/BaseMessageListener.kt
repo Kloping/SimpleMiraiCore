@@ -36,7 +36,7 @@ class BaseMessageListener : SimpleListenerHost {
         val contact: Contact = event.subject
         val message: Message = event.message
         val text = MessageUtils.toText(event.message).trim { it <= ' ' }
-        StarterApplication.ExecuteMethod(q, text, q, contact, message)
+        StarterApplication.executeMethod(q, text, q, contact, message)
     }
 
     /**
@@ -50,7 +50,7 @@ class BaseMessageListener : SimpleListenerHost {
         val contact: Contact = event.subject
         val message: Message = event.message
         val text = MessageUtils.toText(event.message).trim { it <= ' ' }
-        StarterApplication.ExecuteMethod(q, text, q, contact, message)
+        StarterApplication.executeMethod(q, text, q, contact, message)
     }
 
     /**

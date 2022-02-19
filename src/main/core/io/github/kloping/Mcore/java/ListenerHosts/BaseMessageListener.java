@@ -42,7 +42,7 @@ public class BaseMessageListener extends SimpleListenerHost {
         Contact contact = event.getSubject();
         Message message = event.getMessage();
         String text = MessageUtils.toText(event.getMessage()).trim();
-        StarterApplication.ExecuteMethod(q, text, q, contact, message);
+        StarterApplication.executeMethod(q, text, q, contact, message);
     }
 
     /**
@@ -56,7 +56,7 @@ public class BaseMessageListener extends SimpleListenerHost {
         Contact contact = event.getSubject();
         Message message = event.getMessage();
         String text = MessageUtils.toText(event.getMessage()).trim();
-        StarterApplication.ExecuteMethod(q, text, q, contact, message);
+        StarterApplication.executeMethod(q, text, q, contact, message);
     }
 
     /**
