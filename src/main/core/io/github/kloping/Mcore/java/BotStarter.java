@@ -84,7 +84,7 @@ public class BotStarter {
     private static void startSpring() {
         StarterApplication.addConfFile(confFile);
         StarterApplication.setMainKey(Long.class);
-        StarterApplication.setWaitTime(25L);
+        StarterApplication.setWaitTime(25000L);
         StarterApplication.setAccessTypes(Long.class, Contact.class, Message.class);
         StarterApplication.setAllAfter(new Runner() {
             @Override

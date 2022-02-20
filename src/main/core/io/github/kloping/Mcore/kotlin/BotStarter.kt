@@ -91,7 +91,7 @@ object BotStarter {
     private fun startSpring() {
         StarterApplication.addConfFile(confFile)
         StarterApplication.setMainKey(Long::class.java)
-        StarterApplication.setWaitTime(25L)
+        StarterApplication.setWaitTime(25000L)
         StarterApplication.setAccessTypes(Long::class.java, Contact::class.java, Message::class.java)
         StarterApplication.setAllAfter(Runner { t, objects ->
             if (t != null) threads.execute { onReturnResult(t, objects) }
