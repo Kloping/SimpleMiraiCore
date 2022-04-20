@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <mirai.version>2.9.2</mirai.version>
+        <mirai.version>LATEST</mirai.version>
     </properties>
     <repositories>
         <repository>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>io.github.Kloping</groupId>
             <artifactId>SpringTool</artifactId>
-            <version>0.4.6</version>
+            <version>0.4.9</version>
         </dependency>
     </dependencies>
 </project>
