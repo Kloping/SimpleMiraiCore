@@ -37,7 +37,6 @@
 tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
 可用压缩工具 打开jar包 将 META-INF\下 BCxxxx.DSA .DF 类似的文件删除 即可正常运行
 
-
 ### 更新 10/15 将 [Mirai-Core](https://github.com/mamoe/mirai/blob/dev/docs/README.md#jvm-%E5%B9%B3%E5%8F%B0-mirai-%E5%BC%80%E5%8F%91) 与 [Mirai-Console](https://github.com/mamoe/mirai/blob/dev/docs/UserManual.md#%E4%BD%BF%E7%94%A8%E7%BA%AF%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%89%88%E6%9C%AC) 融合
 
 #### 在Core运行时 可加载 Consloe 插件
@@ -61,6 +60,7 @@ tips: 程序打jar包时 若确定 打包无误且仍无法加载主类<br>
 新增配置文件 conf.properties 避免重复打包
 
 ### 配置说明
+
 ```text
 #QQ账号
 qq=0
@@ -71,3 +71,16 @@ ReLogin=true
 #登录协议
 Protocol=ANDROID_PAD
 ```
+
+### =========
+
+使用说明: [编辑配置文件](https://github.com/Kloping/SimpleMiraiCore/blob/master/conf.properties)
+
+启动程序即可
+
+测试
+
+在群里发送: 你好啊 若回复: 你好,你好 则启动成功
+
+[触发语](https://github.com/Kloping/SimpleMiraiCore/blob/master/conf.properties)
+
