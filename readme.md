@@ -8,17 +8,15 @@
 - 此框架 是完全免费且开放源代码
 - 且 仅用于 学习和娱乐<u><b><i>禁止用于非法用途</i></b></u>
 
-[无声教程](http://49.232.209.180:20041/intro.mp4)
-
 长话短说:
 
 首先 你需要了解过 [Mirai](https://github.com/mamoe/mirai)
 
-其次 选择性阅读 [文章](https://github.com/Kloping/my-spring-tool)
+其次 选择性阅读 [spt](https://github.com/Kloping/my-spring-tool)
 
 如果 你学过 Spring 那这个框架 就最适合你不过了
 
-没学过也没关系 阅读一下 [文章](https://github.com/Kloping/my-spring-tool) 基本入门
+没学过也没关系 阅读一下 [spt](https://github.com/Kloping/my-spring-tool) 基本入门
 
 最后拉取本项目 开始使用
 
