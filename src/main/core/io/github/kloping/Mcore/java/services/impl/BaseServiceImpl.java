@@ -1,6 +1,9 @@
 package io.github.kloping.Mcore.java.services.impl;
 
+import io.github.kloping.Mcore.java.BotStarter;
 import io.github.kloping.Mcore.java.services.BaseService;
+import io.github.kloping.MySpringTool.StarterApplication;
+import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.Entity;
 
 

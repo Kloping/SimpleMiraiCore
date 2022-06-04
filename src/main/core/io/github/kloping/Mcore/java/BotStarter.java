@@ -28,9 +28,9 @@ import java.util.concurrent.Executors;
 @CommentScan(path = "io.github.kloping.Mcore.java")
 public class BotStarter {
 
-    public static final ExecutorService threads = Executors.newFixedThreadPool(20);
-    public static final String confFile = "./conf.properties";
-    private static final Map<Long, At> ats = new ConcurrentHashMap<>();
+    public static final ExecutorService SERVICES = Executors.newFixedThreadPool(20);
+    public static final String CONF_FILE = "./conf.properties";
+    private static final Map<Long, At> ATS = new ConcurrentHashMap<>();
     @AutoStand(id = "qq")
     public static Number qq = 0L;
     @AutoStand(id = "pwd")
@@ -82,7 +82,7 @@ public class BotStarter {
     // 这里是关键点 不懂得话可以去看我的另一个github
     //https://github.com/Kloping/my-spring-tool
     private static void startSpring() {
-        StarterApplication.addConfFile(confFile);
+        StarterApplication.addConfFile(CONF_FILE);
         StarterApplication.setMainKey(Long.class);
         StarterApplication.setWaitTime(25000L);
         StarterApplication.setAccessTypes(Long.class, Contact.class, Message.class);
@@ -90,7 +90,7 @@ public class BotStarter {
             @Override
             public void run(Object t, Object[] objects) throws NoRunException {
                 if (t != null)
-                    threads.execute(() -> {
+                    SERVICES.execute(() -> {
                         onReturnResult(t, objects);
                     });
             }
@@ -118,9 +118,9 @@ public class BotStarter {
     }
 
     private static At getAt(long q) {
-        if (ats.containsKey(q)) return ats.get(q);
+        if (ATS.containsKey(q)) return ATS.get(q);
         At at = new At(q);
-        ats.put(q, at);
+        ATS.put(q, at);
         return at;
     }
 }

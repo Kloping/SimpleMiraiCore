@@ -76,7 +76,7 @@ public class BaseMessageListener extends SimpleListenerHost {
      */
     @EventHandler
     public void onLost(BotOfflineEvent event) {
-        Starter.reLoadConfigurationFile(BotStarter.confFile);
+        Starter.reLoadConfigurationFile(BotStarter.CONF_FILE);
         Boolean k = Starter.getContextValue(boolean.class, "ReLogin");
         k = k == null ? BotStarter.autoReLogin : k;
         BotStarter.bot.getConfiguration().setAutoReconnectOnForceOffline(k);
