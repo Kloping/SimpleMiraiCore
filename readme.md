@@ -79,6 +79,3 @@ Protocol=ANDROID_PAD
 测试
 
 在群里发送: 你好啊 若回复: 你好,你好 则启动成功
-
-[触发语](https://github.com/Kloping/SimpleMiraiCore/blob/master/conf.properties)
-
