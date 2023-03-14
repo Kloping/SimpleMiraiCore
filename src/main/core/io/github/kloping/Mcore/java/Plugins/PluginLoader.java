@@ -9,17 +9,17 @@ import java.io.PrintStream;
  */
 public class PluginLoader {
     public static void load(String[] args) {
-        try {
-            PrintStream oldPs = System.out;
-            PrintStream oldErr = System.err;
-
-            MiraiConsoleTerminalLoader.main(args);
-
-            System.setErr(oldErr);
-            System.setOut(oldPs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            PrintStream oldPs = System.out;
+//            PrintStream oldErr = System.err;
+//
+//            MiraiConsoleTerminalLoader.main(args);
+//
+//            System.setErr(oldErr);
+//            System.setOut(oldPs);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 }
 

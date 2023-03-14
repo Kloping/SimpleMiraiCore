@@ -7,14 +7,14 @@ import net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader.main
  */
 object PluginLoader {
     fun load(args: Array<String>?) {
-        try {
-            val oldPs = System.out
-            val oldErr = System.err
-            main(args!!)
-            System.setErr(oldErr)
-            System.setOut(oldPs)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+//        try {
+//            val oldPs = System.out
+//            val oldErr = System.err
+//            main(args!!)
+//            System.setErr(oldErr)
+//            System.setOut(oldPs)
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
     }
 }
