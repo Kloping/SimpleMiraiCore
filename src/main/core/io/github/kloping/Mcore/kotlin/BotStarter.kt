@@ -1,12 +1,12 @@
 package io.github.kloping.Mcore.kotlin
 
+import io.github.kloping.Mcore.FixProtocolVersion.update
 import io.github.kloping.Mcore.kotlin.ListenerHosts.BaseMessageListener
 import io.github.kloping.Mcore.kotlin.Plugins.PluginLoader
 import io.github.kloping.MySpringTool.StarterApplication
 import io.github.kloping.MySpringTool.annotations.AutoStand
 import io.github.kloping.MySpringTool.annotations.CommentScan
 import io.github.kloping.MySpringTool.entity.interfaces.Runner
-import io.github.kloping.MySpringTool.exceptions.NoRunException
 import kotlinx.coroutines.runBlocking
 import net.mamoe.mirai.Bot
 import net.mamoe.mirai.BotFactory.INSTANCE.newBot
@@ -48,6 +48,7 @@ object BotStarter {
         deleteCache()
         // 启动 工具处理
         startSpring()
+        update()
         // 创建配置
         val botConfiguration = BotConfiguration()
         // 登录协议

@@ -1,5 +1,6 @@
 package io.github.kloping.Mcore.java;
 
+import io.github.kloping.Mcore.FixProtocolVersion;
 import io.github.kloping.Mcore.java.ListenerHosts.BaseMessageListener;
 import io.github.kloping.Mcore.java.Plugins.PluginLoader;
 import io.github.kloping.MySpringTool.StarterApplication;
@@ -9,6 +10,7 @@ import io.github.kloping.MySpringTool.entity.interfaces.Runner;
 import io.github.kloping.MySpringTool.exceptions.NoRunException;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
+import net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.contact.Group;
 import net.mamoe.mirai.message.data.At;
@@ -46,6 +48,7 @@ public class BotStarter {
         deleteCache();
         // 启动 工具处理
         startSpring();
+        FixProtocolVersion.update();
         // 创建配置
         BotConfiguration botConfiguration = new BotConfiguration();
         // 登录协议
@@ -79,8 +82,6 @@ public class BotStarter {
         }
     }
 
-    // 这里是关键点 不懂得话可以去看我的另一个github
-    //https://github.com/Kloping/my-spring-tool
     private static void startSpring() {
         StarterApplication.addConfFile(CONF_FILE);
         StarterApplication.setMainKey(Long.class);
