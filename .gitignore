@@ -1,4 +1,7 @@
 ### Example user template template
+t544-enc-windows-x64.dll
+plugin-shared-libraries/**
+plugin-libraries/**
 ### Example user template
 
 # IntelliJ project files
