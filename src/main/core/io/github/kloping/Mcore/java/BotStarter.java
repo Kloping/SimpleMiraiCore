@@ -28,17 +28,8 @@ import java.util.concurrent.Executors;
 public class BotStarter {
 
     public static final ExecutorService SERVICES = Executors.newFixedThreadPool(20);
-    public static final String CONF_FILE = "./conf.properties";
     private static final Map<Long, At> ATS = new ConcurrentHashMap<>();
-    @AutoStand(id = "qq")
-    public static Number qq = 0L;
-    @AutoStand(id = "pwd")
-    public static String password = "";
-    @AutoStand(id = "ReLogin")
-    public static Boolean autoReLogin = false;
     public static Bot bot;
-    @AutoStand(id = "Protocol")
-    private static String Protocol = "ANDROID_PAD";
 
     public static void main(String[] args) {
         // 启动 工具处理
@@ -49,19 +40,7 @@ public class BotStarter {
         GlobalEventChannel.INSTANCE.registerListenerHost(new BaseMessageListener());
     }
 
-    private static void deleteCache() {
-        try {
-            File file = new File("./cache");
-            for (File f : file.listFiles()) {
-                f.deleteOnExit();
-            }
-            file.deleteOnExit();
-        } catch (Exception e) {
-        }
-    }
-
     private static void startSpring() {
-        StarterApplication.addConfFile(CONF_FILE);
         StarterApplication.setMainKey(Long.class);
         StarterApplication.setWaitTime(25000L);
         StarterApplication.setAccessTypes(Long.class, Contact.class, Message.class);
