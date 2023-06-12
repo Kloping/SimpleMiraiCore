@@ -6,7 +6,6 @@ import io.github.kloping.MySpringTool.StarterApplication;
 import io.github.kloping.MySpringTool.annotations.AutoStand;
 import io.github.kloping.MySpringTool.annotations.Entity;
 
-
 /**
  * 在这里实现想要做的事
  *
