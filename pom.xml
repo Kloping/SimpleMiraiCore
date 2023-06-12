@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <mirai.version>2.14.0</mirai.version>
+        <mirai.version>2.15.0-dev-98</mirai.version>
     </properties>
     <repositories>
         <repository>
@@ -22,13 +22,12 @@
             <id>ali</id>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
+        <repository>
+            <id>snapshots</id>
+            <url>https://repo.mirai.mamoe.net/snapshots</url>
+        </repository>
     </repositories>
     <dependencies>
-        <dependency>
-            <groupId>net.mamoe</groupId>
-            <artifactId>mirai-core-all</artifactId>
-            <version>${mirai.version}</version>
-        </dependency>
         <dependency>
             <groupId>net.mamoe</groupId>
             <artifactId>mirai-core-jvm</artifactId>
@@ -47,7 +46,12 @@
         <dependency>
             <groupId>io.github.Kloping</groupId>
             <artifactId>SpringTool</artifactId>
-            <version>0.5.8</version>
+            <version>0.6.0-M3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.resolver</groupId>
+            <artifactId>maven-resolver-spi</artifactId>
+            <version>1.7.3</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,6 +1,5 @@
 package io.github.kloping.Mcore.kotlin
 
-import io.github.kloping.Mcore.FixProtocolVersion.update
 import io.github.kloping.Mcore.kotlin.ListenerHosts.BaseMessageListener
 import io.github.kloping.Mcore.kotlin.Plugins.PluginLoader
 import io.github.kloping.MySpringTool.StarterApplication
@@ -48,7 +47,8 @@ object BotStarter {
         deleteCache()
         // 启动 工具处理
         startSpring()
-        update()
+        // 加载插件
+        PluginLoader.load(args)
         // 创建配置
         val botConfiguration = BotConfiguration()
         // 登录协议
@@ -67,8 +67,6 @@ object BotStarter {
         bot!!.login()
         // 注册消息处理 通道
         bot!!.eventChannel.registerListenerHost(BaseMessageListener())
-        // 加载插件
-        PluginLoader.load(args)
     }
 
     private fun deleteCache() {
