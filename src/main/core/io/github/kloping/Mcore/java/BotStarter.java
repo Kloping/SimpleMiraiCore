@@ -8,13 +8,12 @@ import io.github.kloping.MySpringTool.annotations.CommentScan;
 import io.github.kloping.MySpringTool.entity.interfaces.Runner;
 import io.github.kloping.MySpringTool.exceptions.NoRunException;
 import net.mamoe.mirai.Bot;
-import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.contact.Group;
+import net.mamoe.mirai.event.GlobalEventChannel;
 import net.mamoe.mirai.message.data.At;
 import net.mamoe.mirai.message.data.Message;
 import net.mamoe.mirai.message.data.MessageChainBuilder;
-import net.mamoe.mirai.utils.BotConfiguration;
 
 import java.io.File;
 import java.util.Map;
@@ -42,30 +41,12 @@ public class BotStarter {
     private static String Protocol = "ANDROID_PAD";
 
     public static void main(String[] args) {
-        //启动时 删除缓存 减少 程序启动后堵塞无法登录的情况
-        deleteCache();
         // 启动 工具处理
         startSpring();
-        // 加载插件
+        //Start Mirai Console
         PluginLoader.load(args);
-        // 创建配置
-        BotConfiguration botConfiguration = new BotConfiguration();
-        // 登录协议
-        botConfiguration.setProtocol(BotConfiguration.MiraiProtocol.valueOf(Protocol));
-        // 心跳协议
-        botConfiguration.setHeartbeatStrategy(BotConfiguration.HeartbeatStrategy.STAT_HB);
-        // 设置 cache 目录
-        botConfiguration.setCacheDir(new File("./cache"));
-        // 设置 device
-        botConfiguration.fileBasedDeviceInfo("./device.json");
-        //设置是否掉线重登录
-        botConfiguration.setAutoReconnectOnForceOffline(autoReLogin);
-        // 创建 Bot
-        bot = BotFactory.INSTANCE.newBot(qq.longValue(), password, botConfiguration);
-        // 登录
-        bot.login();
-        // 注册消息处理 通道
-        bot.getEventChannel().registerListenerHost(new BaseMessageListener());
+        // register default listener
+        GlobalEventChannel.INSTANCE.registerListenerHost(new BaseMessageListener());
     }
 
     private static void deleteCache() {
